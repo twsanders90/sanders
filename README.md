@@ -1,19 +1,44 @@
 ### Heading {No Fluff Kitchen}
 
 ## H2 
-No Fluff Kitchen 
+** No Fluff Kitchen ** 
+
+
+
 
 ## H4 
-Welcome to recipes without the personal stories
+** Welcome to recipes without the personal stories **
+
+-Dishes by Region
+-Region 1
+-Region 2
+-Region 3
+-Region 4
+
+![picture of food ](imageOfFood.jpg)
+----------------------------------------
+## H5
+Today's Popular recipes
+
+|Dishes | Rating|
+|-------|-------|
+|fist   | ratings|
+|second | ratings|
+--------------------------------------
+## H5
+Seasonal recipes
+
+- Picture & Description
+- Picture & Description
+- Picture & Description
+-------------------------------------
+
+- login
+- create account
+- my account
 
 
-| dishes by category | list of categories |
-|------------------|---------------------|
-| Dishes by region | pick regional cuisine|
-| Todays Favorites | Daily Recipes|
-| recipes of the season | Seasonal recipes|
 
-![alt text](image of food.jpg)
 
 
 
