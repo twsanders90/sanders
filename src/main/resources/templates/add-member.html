@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en"
-        xmlns:th="http://thymeleaf.org">
+        xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
-    <title>Members signUp</title>
+    <title>Members Sign Up</title>
 </head>
 <body>
+<div th:replace="fragments/base :: navigation"></div>
 <div th:replace="fragments/base :: header"></div>
     <h3>Sign up Form</h3>
-    <form th:action="@{/Members}" th:object="${Members}" method="post">
+    <form class="form" th:action="@{/Members}" th:object="${Members}" method="post">
         <div>
             <label for="firstName">First Name: </label>
             <input id="firstName" type="text" th:field="*{firstName}"/>

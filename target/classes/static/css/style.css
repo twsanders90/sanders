@@ -1,0 +1,31 @@
+.form{
+    text-align: center;
+    vertical-align: middle;
+    display: table;
+    margin: auto;
+
+}
+.header{
+    color: firebrick;
+    font-family: "Brush Script MT";
+    font-size: 400px;
+    margin-top: 40px;
+
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+
+}
+#sandwhich{
+    width: 300px;
+    height:350px ;
+}
+#logo{
+    width: 50px;
+    height: 50px;
+}
