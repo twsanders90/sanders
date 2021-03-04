@@ -1,17 +1,33 @@
 .form{
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     display: table;
     margin: auto;
     font-family: "Arial Black";
+    border: black;
 
+}
+input[type=text], select{
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+input[type=number], select{
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
 
 }
 .header{
     color: firebrick;
     font-family: "Brush Script MT";
-    font-size: 400px;
+    font-size: 500px;
     margin-top: 40px;
+    text-shadow: 1px 1px black;
 
 }
 .footer{
@@ -39,4 +55,17 @@
     text-align: center;
     font-family: "Arial Black";
     margin-bottom: 15px;
+}
+#thankyou{
+    font-family: "Arial Black";
+    text-align: center;
+    font-kerning: auto;
+}
+.button{
+    box-sizing: border-box;
+    width: 100%;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
 }

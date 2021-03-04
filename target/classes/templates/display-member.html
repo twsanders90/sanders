@@ -11,9 +11,10 @@
 <div th:replace="fragments/base :: header"></div>
 
 
-    <h3>Thank you for signing up <br>
+    <h3 id="thankyou">Thank you for signing up<br>
         <span th:text="${fullProfile}"></span></h3>
 <br><br>
 <div th:replace="fragments/base :: footer"></div>
 </body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
 </html>
