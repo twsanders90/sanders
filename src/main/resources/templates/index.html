@@ -2,12 +2,16 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>No Fluff Kitchen</title>
+        <th:block th:insert="fragments/base :: headerFiles"></th:block>
+        <title>Home Page</title>
 </head>
+
 <body>
-    <h1> Welcome to No Fluff Kitchen</h1>
+    <div th:replace="fragments/base :: header"></div>
 
 
+    <br><br>
+    <div th:replace="fragments/base :: footer"></div>
 </body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
 </html>

@@ -3,11 +3,11 @@
         xmlns:th="http://thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Add Member</title>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title>Members signUp</title>
 </head>
 <body>
-    <h1>No Fluff Kitchen</h1>
+<div th:replace="fragments/base :: header"></div>
     <h3>Sign up Form</h3>
     <form th:action="@{/Members}" th:object="${Members}" method="post">
         <div>

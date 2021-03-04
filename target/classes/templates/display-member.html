@@ -2,11 +2,17 @@
 <html lang="en"
       xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
     <title>Display Member</title>
 </head>
-<body>
-    <h3>Thank you for signing up <span th:text="${fullProfile}"></span></h3>
 
+<body>
+<div th:replace="fragments/base :: header"></div>
+
+
+    <h3>Thank you for signing up <br>
+        <span th:text="${fullProfile}"></span></h3>
+<br><br>
+<div th:replace="fragments/base :: footer"></div>
 </body>
 </html>
