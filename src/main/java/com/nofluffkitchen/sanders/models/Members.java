@@ -1,5 +1,7 @@
 package com.nofluffkitchen.sanders.models;
 
+import java.lang.reflect.Member;
+
 public class Members {
 
     private String firstName;
@@ -8,12 +10,13 @@ public class Members {
     private String userName;
     private int age;
 
+
     public Members() {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.userName = userName;
-        this.age = age;
+        this.firstName = "";
+        this.lastName = "";
+        this.email = "";
+        this.userName = "";
+        this.age = 0;
     }
 
     public String getFirstName() {

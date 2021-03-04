@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+        xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Member</title>
+</head>
+<body>
+    <h1>No Fluff Kitchen</h1>
+    <h3>Sign up Form</h3>
+    <form th:action="@{/Members}" th:object="${Members}" method="post">
+        <div>
+            <label for="firstName">First Name: </label>
+            <input id="firstName" type="text" th:field="*{firstName}"/>
+        </div>
+        <br>
+        <div>
+            <label for="lastName">Last Name: </label>
+            <input id="lastName" type="text" th:field="*{lastName}"/>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email: </label>
+            <input id="email" type="text" th:field="*{email}"/>
+        </div>
+        <br>
+        <div>
+            <label for="userName">User Name: </label>
+            <input id="userName" type="text" th:field="*{userName}"/>
+        </div>
+        <br>
+        <div>
+            <label for="age">Age: </label>
+            <input id="age" type="number" th:field="*{age}"/>
+        </div>
+        <input type="submit" value="Submit"/>
+
+    </form>
+
+</body>
+</html>
