@@ -25,9 +25,13 @@ public class MembersController {
             Members.getLastName() + "  " + '\'' + Members.getEmail() + "  " + '\'' + Members.getUserName() + "  " + '\'' +
                     Members.getAge());
             System.out.println("First Name: " + Members.getFirstName());
+            System.out.println();
             System.out.println("Last Name: " + Members.getLastName());
+            System.out.println();
             System.out.println("Email: " + Members.getEmail());
+            System.out.println();
             System.out.println("User Name: " + Members.getUserName());
+            System.out.println();
             System.out.println("Age: " + Members.getAge());
             return "redirect:/view";
 
