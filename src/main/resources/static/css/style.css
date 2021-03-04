@@ -3,6 +3,8 @@
     vertical-align: middle;
     display: table;
     margin: auto;
+    font-family: "Arial Black";
+
 
 }
 .header{
@@ -22,10 +24,19 @@
 
 }
 #sandwhich{
-    width: 300px;
-    height:350px ;
+    width: 350px;
+    height:250px ;
 }
 #logo{
     width: 50px;
     height: 50px;
+}
+.navbar{
+    font-family: "Arial Black";
+
+}
+#signup{
+    text-align: center;
+    font-family: "Arial Black";
+    margin-bottom: 15px;
 }
