@@ -12,7 +12,13 @@
 
 
     <h3 id="thankyou">Thank you for signing up<br>
-        <span th:text="${fullProfile}"></span></h3>
+        <span th:text="${members.getFirstName()}"></span><br>
+        <span th:text="${members.getLastName()}"></span><br>
+        <span th:text="${members.getEmail()}"></span><br>
+        <span th:text="${members.getUserName()}"></span><br>
+        <span th:text="${members.getAge()}"></span>
+    </h3>
+
 <br><br>
 <div th:replace="fragments/base :: footer"></div>
 </body>

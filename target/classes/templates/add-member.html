@@ -10,7 +10,7 @@
 <div th:replace="fragments/base :: navigation"></div>
 <div th:replace="fragments/base :: header"></div>
     <h3 id="signup">Sign up Form</h3>
-    <form class="form" th:action="@{/Members}" th:object="${Members}" method="post">
+    <form class="form" th:action="@{/members}" th:object="${members}" method="post">
         <div>
             <label for="firstName">First Name: </label>
             <input id="firstName" type="text" placeholder="first name" th:field="*{firstName}"/>

@@ -1,5 +1,6 @@
 package com.nofluffkitchen.sanders.controllers;
 
+import com.nofluffkitchen.sanders.models.Members;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ViewMemberController {
 
     @GetMapping
-    public String showMember(@ModelAttribute("fullProfile") Object flashAttribute, Model model){
-        model.addAttribute("fullProfile", flashAttribute);
+    public String showMember(@ModelAttribute("members") Members members, Model model){
+        model.addAttribute("members", members);
+
         return "display-member";
     }
 }
