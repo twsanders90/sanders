@@ -32,7 +32,7 @@ public class MembersController {
             System.out.println("User Name: " + members.getUserName());
             System.out.println();
             System.out.println("Age: " + members.getAge());
-            return "redirect:/view";
+            return "redirect:/members-view";
 
         }
 }

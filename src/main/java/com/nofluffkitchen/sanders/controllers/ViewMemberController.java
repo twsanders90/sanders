@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/view")
+@RequestMapping("/members-view")
 public class ViewMemberController {
 
     @GetMapping
-    public String showMember(@ModelAttribute("members") Members members, Model model){
-        model.addAttribute("members", members);
-
+    public String showMember(@ModelAttribute("members") Members members){
         return "display-member";
     }
 }

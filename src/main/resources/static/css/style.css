@@ -31,7 +31,7 @@ input[type=number], select{
 
 }
 .footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -68,4 +68,8 @@ input[type=number], select{
     border: 2px solid #ccc;
     border-radius: 4px;
     margin-top: 10px;
+}
+
+body{
+    margin-bottom: 18px;
 }

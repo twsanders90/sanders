@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <th:block th:insert = "fragments/base :: headerFiles"></th:block>
+    <meta charset="UTF-8">
+    <title>Recipe Page</title>
+</head>
+<body>
+<div th:replace="fragments/base :: navigation"></div>
+<div th:replace="fragments/base :: header"></div>
+
+<div class="container-fluid mt-5">
+    <div th:each="recipe: ${recipes}">
+        <div class="row justify-content-center mb-5">
+            <div class="col-2 col-md-4"></div>
+            <div class="col-8 col-md-4 card">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${recipe.getName()}"></h5>
+                    <span th:text="'Recipe Name: ' + ${recipe.getName()}"></span><br>
+                    <span th:text="'Ingredients: ' + ${recipe.getIngredients()}"></span><br>
+                    <span th:text="'Type: ' + ${recipe.getType()}"></span><br>
+                    <span th:text="'Type: ' + ${recipe.getTime()}"></span><br>
+
+                    <span th:text="'Date created: ' + ${#temporals.format(recipe.created, 'dd-MM-yyyy HH:mm')}"></span><br>
+                    <span th:text="'Date modified: ' + ${#temporals.format(recipe.modified, 'dd-MM-yyyy HH:mm')}"></span><br>
+                </div>
+            </div>
+            <div class="col-2 col-md-4"></div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/base :: footer"></div>
+</body>
+
+<th:block th:replace = "fragments/base :: scripts">
+
+</th:block>
+</html>
