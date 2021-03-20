@@ -21,7 +21,7 @@
                     <span th:text="'Recipe Name: ' + ${recipe.getName()}"></span><br>
                     <span th:text="'Ingredients: ' + ${recipe.getIngredients()}"></span><br>
                     <span th:text="'Type: ' + ${recipe.getType()}"></span><br>
-                    <span th:text="'Type: ' + ${recipe.getTime()}"></span><br>
+                    <span th:text="'Time: ' + ${recipe.getTime()}"></span><br>
 
                     <span th:text="'Date created: ' + ${#temporals.format(recipe.created, 'dd-MM-yyyy HH:mm')}"></span><br>
                     <span th:text="'Date modified: ' + ${#temporals.format(recipe.modified, 'dd-MM-yyyy HH:mm')}"></span><br>

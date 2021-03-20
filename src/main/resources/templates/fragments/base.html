@@ -23,13 +23,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{/}">Home</a></li>
 
-                <li class="nav-item"><a class="nav-link" th:href="@{members}">Sign up</a></li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/members' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{members}">Sign up</a></li>
 
-                <li class="nav-item"><a class="nav-link" th:href="@{recipes}">Add Recipe</a></li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/recipes' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{recipes}">Add Recipe</a></li>
 
-                <li class="nav-item"><a class="nav-link" th:href="@{recipes-view}">View Recipe</a></li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/recipes-view' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{recipes-view}">View Recipe</a></li>
 
             </ul>
         </div>
