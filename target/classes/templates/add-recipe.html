@@ -30,7 +30,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <input class="form-control" type="text" placeholder="ingredients" th:field="*{ingredients}"/>
+                    <textarea class="form-control" type="text" placeholder="ingredients" th:field="*{ingredients}"/>
                 </div>
             </div>
             <div class="row mb-3">
@@ -42,12 +42,19 @@
             </div>
             <div class="row justify-content-center mb-3">
                 <div class="col-12">
-                    <input class="form-control" type="text" placeholder="type" th:field="*{type}"/>
+                    <label for="add recipe">Choose Region</label>
+                    <select name="Region" class="form-control" type="text" th:field="*{type}">
+                    <option value="American">American</option>
+                    <option value="Asian">Asian</option>
+                    <option value="European">European</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Other">Other</option>
+                    </select>
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
                 <div class="col-12">
-                    <input class="form-control" type="number" placeholder="Time" th:field="*{time}"/>
+                    <textarea class="form-control" type="text" placeholder="Directions" th:field="*{directions}"/>
                 </div>
             </div>
             <div class="row justify-content-center">

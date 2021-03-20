@@ -23,7 +23,7 @@ public class Recipes {
 
 
     private String type;
-    private int time;
+    private String directions;
     private LocalDateTime created;
     private LocalDateTime modified;
 
@@ -33,15 +33,15 @@ public class Recipes {
         this.name = "";
         this.ingredients = "";
         this.type = "";
-        this.time = 0;
+        this.directions = "";
 
     }
 
-    public Recipes(String type, int time, String name, String ingredients) {
+    public Recipes(String type, String directions, String name, String ingredients) {
         this.name = name;
         this.ingredients = ingredients;
         this.type = type;
-        this.time = time;
+        this.directions = directions;
 
     }
 
@@ -53,12 +53,12 @@ public class Recipes {
         this.type = type;
     }
 
-    public int getTime() {
-        return time;
+    public String getDirections() {
+        return directions;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 
     public String getName() {
@@ -102,5 +102,5 @@ public class Recipes {
     public void onUpdate(){this.setModified(LocalDateTime.now());}
 
     @Override
-    public String toString(){ return this.name + this.type + this.ingredients + this.time;}
+    public String toString(){ return this.name + this.type + this.ingredients + this.directions;}
 }
