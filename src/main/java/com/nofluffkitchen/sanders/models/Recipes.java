@@ -20,7 +20,9 @@ public class Recipes {
     @Size(min = 2, message = "Ingredients list required")
     private String ingredients;
 
-
+    @NotBlank(message = "Must be valid User Name")
+    @Column(unique = true)
+    private String createdBy;
 
     private String type;
     private String directions;
@@ -34,15 +36,21 @@ public class Recipes {
         this.ingredients = "";
         this.type = "";
         this.directions = "";
+        this.createdBy = "";
 
     }
 
-    public Recipes(String type, String directions, String name, String ingredients) {
+    public Recipes(String type, String directions, String name, String ingredients,String createdBy) {
         this.name = name;
         this.ingredients = ingredients;
         this.type = type;
         this.directions = directions;
+        this.createdBy = createdBy;
 
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getType() {
@@ -75,6 +83,14 @@ public class Recipes {
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     public LocalDateTime getCreated() {

@@ -13,18 +13,13 @@
 
 <div class="container-fluid mt-5">
     <div th:each="recipe: ${recipes}">
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center mb-3">
             <div class="col-2 col-md-4"></div>
             <div class="col-8 col-md-4 card">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${recipe.getName()}"></h5>
-                    <span th:text="'Recipe Name: ' + ${recipe.getName()}"></span><br>
-                    <span th:text="'Ingredients: ' + ${recipe.getIngredients()}"></span><br>
-                    <span th:text="'Type: ' + ${recipe.getType()}"></span><br>
-                    <span th:text="'Directions: ' + ${recipe.getDirections()}"></span><br>
-
-                    <span th:text="'Date created: ' + ${#temporals.format(recipe.created, 'dd-MM-yyyy HH:mm')}"></span><br>
-                    <span th:text="'Date modified: ' + ${#temporals.format(recipe.modified, 'dd-MM-yyyy HH:mm')}"></span><br>
+                    <h5 class="card-title d-inline" th:text="${recipe.getName()}"></h5>
+                    <a th:href="@{/recipes/view/{id}(id=${recipe.id})}" class="ml-3 text-dark" ><i class="fas fa-eye"></i></a>
+                    <a th:href="@{/recipes/delete/{id}(id=${recipe.id})}" class="ml-3 text-danger"><i class="fas fa-trash-alt"></i></a>
                 </div>
             </div>
             <div class="col-2 col-md-4"></div>

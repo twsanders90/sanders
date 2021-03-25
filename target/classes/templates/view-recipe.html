@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/html">
-
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:insert="fragments/base :: headerFiles"></th:block>
-    <title>Add Recipe</title>
+    <th:block th:insert = "fragments/base :: headerFiles"></th:block>
+    <meta charset="UTF-8">
+    <title>Recipe</title>
 </head>
+
 <body>
     <div th:replace="fragments/base :: navigation"></div>
     <div th:replace="fragments/base :: header"></div>
-    <h3 id="add recipe"></h3>
 
-    <form class="form" th:action="@{/recipes}" th:object="${recipes}" method="post">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-12">View/Edit Recipe</h3>
+        </div>
+    </div>
+
+    <form class="form mt-3 mb-3" th:action="@{/recipes/edit/{id}(id=${recipes.id})}" th:object="${recipes}" method="post">
 
         <div class="container-fluid">
 
             <div class="row justify-content-center">
-                 <div class="col-12">
+                <div class="col-12">
                     <input class="form-control" type="text" placeholder="Name" th:field="*{name}"/>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <div class="col-12">
                     <span class="text-danger small" th:if="${#fields.hasErrors('name')}"
@@ -28,11 +34,13 @@
                     </span>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <div class="col-12">
                     <textarea class="form-control" type="text" placeholder="ingredients" th:field="*{ingredients}"/>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <div class="col-12">
                     <span class="text-danger small" th:if="${#fields.hasErrors('ingredients')}"
@@ -40,28 +48,32 @@
                     </span>
                 </div>
             </div>
+
             <div class="row justify-content-center mb-3">
                 <div class="col-12">
-                    <label for="add recipe">Choose Region</label>
+                    <label>Choose Region</label>
                     <select name="Region" class="form-control" type="text" th:field="*{type}">
-                    <option value="American">American</option>
-                    <option value="Asian">Asian</option>
-                    <option value="European">European</option>
-                    <option value="Indian">Indian</option>
-                    <option value="Other">Other</option>
+                        <option value="American">American</option>
+                        <option value="Asian">Asian</option>
+                        <option value="European">European</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>
+
             <div class="row justify-content-center mb-3">
                 <div class="col-12">
                     <textarea class="form-control" type="text" placeholder="Directions" th:field="*{directions}"/>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <div class="col-12">
                     <input class="form-control" type="text" placeholder="User Name" th:field="*{createdBy}"/>
                 </div>
             </div>
+
             <div class="row mb-3">
                 <div class="col-12">
                     <span class="text-danger small" th:if="${#fields.hasErrors('createdBy')}"
@@ -69,9 +81,18 @@
                     </span>
                 </div>
             </div>
+
+            <div class="row justify-content-center form-group">
+                <div class="col-12">
+                    <span th:text="'Date Created: ' + ${#temporals.format(recipes.created, 'dd-MM-yyyy HH:mm')}"></span><br>
+                    <span th:text="'Date Modified: ' + ${#temporals.format(recipes.modified, 'dd-MM-yyyy HH:mm')}"></span><br>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-12">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="submit"/>
+                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/recipes-view}">Cancel</a>
                 </div>
             </div>
 
@@ -81,6 +102,7 @@
 
     <br><br>
     <div th:replace="fragments/base :: footer"></div>
+
 </body>
-<th:block th:replace="fragments/base :: scripts"></th:block>
+<th:block th:replace = "fragments/base :: scripts"></th:block>
 </html>

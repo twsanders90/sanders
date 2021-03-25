@@ -17,8 +17,7 @@ public class ViewRecipeController {
     @Autowired
     private RecipeRepository recipeRepo;
 
-//    @Autowired
-//    public ViewRecipeController(RecipeRepository RecipeRepo){this.recipeRepo = recipeRepo;}
+
 
     @GetMapping
     public String showRecipeList(Model model){

@@ -59,6 +59,18 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-12">
+                    <input class="form-control" type="text" placeholder="User Name" th:field="*{createdBy}"/>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('createdBy')}"
+                          th:errors="*{createdBy}">
+                    </span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="submit"/>
                 </div>
             </div>
