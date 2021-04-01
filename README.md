@@ -7,7 +7,7 @@
 
 
 ## H4 
-** Welcome to recipes without the personal stories **
+** Welcome to recipe without the personal stories **
 
 -Dishes by Region
 -Region 1
@@ -18,7 +18,7 @@
 ![picture of food ](imageOfFood.jpg)
 ----------------------------------------
 ## H5
-Today's Popular recipes
+Today's Popular recipe
 
 |Dishes | Rating|
 |-------|-------|
@@ -26,7 +26,7 @@ Today's Popular recipes
 |second | ratings|
 --------------------------------------
 ## H5
-Seasonal recipes
+Seasonal recipe
 
 - Picture & Description
 - Picture & Description

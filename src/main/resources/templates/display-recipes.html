@@ -18,8 +18,8 @@
             <div class="col-8 col-md-4 card">
                 <div class="card-body">
                     <h5 class="card-title d-inline" th:text="${recipe.getName()}"></h5>
-                    <a th:href="@{/recipes/view/{id}(id=${recipe.id})}" class="ml-3 text-dark" ><i class="fas fa-eye"></i></a>
-                    <a th:href="@{/recipes/delete/{id}(id=${recipe.id})}" class="ml-3 text-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a th:href="@{/recipe/view/{id}(id=${recipe.id})}" class="ml-3 text-dark" ><i class="fas fa-eye"></i></a>
+                    <a th:href="@{/recipe/delete/{id}(id=${recipe.id})}" class="ml-3 text-danger"><i class="fas fa-trash-alt"></i></a>
                 </div>
             </div>
             <div class="col-2 col-md-4"></div>

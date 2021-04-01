@@ -4,9 +4,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
-public class Recipes {
+public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -29,9 +30,10 @@ public class Recipes {
     private LocalDateTime created;
     private LocalDateTime modified;
 
+    @ManyToOne
+    private Category category;
 
-
-    public Recipes() {
+    public Recipe() {
         this.name = "";
         this.ingredients = "";
         this.type = "";
@@ -40,7 +42,7 @@ public class Recipes {
 
     }
 
-    public Recipes(String type, String directions, String name, String ingredients,String createdBy) {
+    public Recipe(String type, String directions, String name, String ingredients, String createdBy) {
         this.name = name;
         this.ingredients = ingredients;
         this.type = type;
@@ -109,6 +111,14 @@ public class Recipes {
         this.modified = modified;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     @PrePersist
     public void onCreate(){
         this.setCreated(LocalDateTime.now());
@@ -119,4 +129,17 @@ public class Recipes {
 
     @Override
     public String toString(){ return this.name + this.type + this.ingredients + this.directions;}
+
+    @Override
+    public boolean equals(Object o){
+        if(!(o instanceof Recipe))
+            return false;
+
+         Recipe c  = (Recipe) o;
+        return this.name.equals(c.name) && this.ingredients.equals(c.ingredients) && this.directions.equals(c.directions);
+    }
+    @Override
+    public int hashCode(){
+        return this.name.hashCode();
+    }
 }

@@ -12,7 +12,7 @@
     <div th:replace="fragments/base :: header"></div>
     <h3 id="add recipe"></h3>
 
-    <form class="form" th:action="@{/recipes}" th:object="${recipes}" method="post">
+    <form class="form" th:action="@{/recipe}" th:object="${recipe}" method="post">
 
         <div class="container-fluid">
 
@@ -52,16 +52,30 @@
                     </select>
                 </div>
             </div>
+
             <div class="row justify-content-center mb-3">
                 <div class="col-12">
                     <textarea class="form-control" type="text" placeholder="Directions" th:field="*{directions}"/>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <div class="col-12">
                     <input class="form-control" type="text" placeholder="User Name" th:field="*{createdBy}"/>
                 </div>
             </div>
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-12">
+                    <label for="category">Select Meal Category</label>
+                    <select class="form-control selectpicker col-12" name="category" id="category">
+                        <option th:each="category : ${categories}" th:value="${category.id}"
+                        th:text="${category.category}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="row mb-3">
                 <div class="col-12">
                     <span class="text-danger small" th:if="${#fields.hasErrors('createdBy')}"
@@ -69,6 +83,7 @@
                     </span>
                 </div>
             </div>
+
             <div class="row justify-content-center">
                 <div class="col-12">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="submit"/>

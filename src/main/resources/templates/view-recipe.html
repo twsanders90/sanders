@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <form class="form mt-3 mb-3" th:action="@{/recipes/edit/{id}(id=${recipes.id})}" th:object="${recipes}" method="post">
+    <form class="form mt-3 mb-3" th:action="@{/recipe/edit/{id}(id=${recipe.id})}" th:object="${recipe}" method="post">
 
         <div class="container-fluid">
 
@@ -84,15 +84,25 @@
 
             <div class="row justify-content-center form-group">
                 <div class="col-12">
-                    <span th:text="'Date Created: ' + ${#temporals.format(recipes.created, 'dd-MM-yyyy HH:mm')}"></span><br>
-                    <span th:text="'Date Modified: ' + ${#temporals.format(recipes.modified, 'dd-MM-yyyy HH:mm')}"></span><br>
+                    <span th:text="'Date Created: ' + ${#temporals.format(recipe.created, 'dd-MM-yyyy HH:mm')}"></span><br>
+                    <span th:text="'Date Modified: ' + ${#temporals.format(recipe.modified, 'dd-MM-yyyy HH:mm')}"></span><br>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="row justify-content-center col-12">
+                    <select class="form-control selectpicker col-12" name="category" id="category" th:field="*{category}">
+                        <option th:each="c : ${categories}" th:value="${c.id}"
+                                th:text="${c.category}">
+                        </option>
+                    </select>
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-12">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="submit"/>
-                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/recipes-view}">Cancel</a>
+                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/display-recipes}">Cancel</a>
                 </div>
             </div>
 
