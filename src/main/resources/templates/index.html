@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
         <th:block th:insert="fragments/base :: headerFiles"></th:block>
         <title>Home</title>
@@ -18,12 +19,22 @@
     <br>
 
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" sec:authorize="isAuthenticated()">
+            <div class="col-8 col-md-3 mt-4 text-center">
+                <h4 th:text="'Welcome ' + ${user.firstName} + ' ' + ${user.lastName}"></h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center" sec:authorize="isAnonymous()">
             <div class="col-8 col-md-3 mt-4 text-center">
                 <a th:href="@{/login}" class="btn btn-light btn-outline-dark">Login</a>
             </div>
         </div>
     </div>
+
+
 
     <br><br>
     <div th:replace="fragments/base :: footer"></div>

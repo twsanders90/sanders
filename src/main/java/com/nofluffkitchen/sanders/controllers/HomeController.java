@@ -1,6 +1,8 @@
 package com.nofluffkitchen.sanders.controllers;
 
 import com.nofluffkitchen.sanders.models.Members;
+import com.nofluffkitchen.sanders.models.User;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +17,9 @@ import java.time.LocalDate;
 public class HomeController {
 
     @GetMapping
-    public String getHomePage(Model model) {
+    public String getHomePage(Model model, @AuthenticationPrincipal User user) {
 
-        model.addAttribute("members", new Members());
-
-
+        model.addAttribute("user", user);
         return "index";
     }
 

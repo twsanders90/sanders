@@ -1,11 +1,14 @@
 package com.nofluffkitchen.sanders.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -18,6 +21,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Qualifier
+    private UserDetailsService userDetailService;
+
+    @Autowired
+    public void setUserDetailService(UserDetailServiceImpl userDetailService){
+        this.userDetailService = userDetailService;
+
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
@@ -25,12 +37,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/recipe/**", "/display-recipes/**","/add-member/**").hasRole("ADMIN")
+                .antMatchers("/recipe/**").hasRole("ADMIN")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/recipe/**", "/display-recipes/**","/add-member/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/recipe/**, /display-recipe/**").hasAnyRole("ADMIN", "USER")
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/display-recipes", true).permitAll()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/", true).permitAll()
+                .usernameParameter("email")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout");
@@ -38,14 +51,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-            auth.inMemoryAuthentication()
-                    .withUser("user")
-                    .password(passwordEncoder().encode("password"))
-                    .roles("USER")
-            .and()
-                    .withUser("admin")
-                    .password(passwordEncoder().encode("password"))
-                    .roles("ADMIN");
+            auth
+                    .userDetailsService(userDetailService)
+                    .passwordEncoder(passwordEncoder());
+
 
     }
 }
