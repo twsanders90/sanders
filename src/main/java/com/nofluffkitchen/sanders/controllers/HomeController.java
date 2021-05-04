@@ -1,16 +1,11 @@
 package com.nofluffkitchen.sanders.controllers;
 
-import com.nofluffkitchen.sanders.models.Members;
 import com.nofluffkitchen.sanders.models.User;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/")

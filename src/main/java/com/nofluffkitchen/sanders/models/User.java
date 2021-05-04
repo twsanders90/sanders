@@ -39,10 +39,13 @@ public class User implements UserDetails {
 
     public enum Role {ROLE_ADMIN, ROLE_USER}
 
-    public User(){ }
+    public User(){
+        this.accountNonExpired = true;
+        this.accountNonLocked = true;
+        this.credentialsNonExpired = true;
+    }
 
     public User(String email,String username, String password, String firstName, String lastName){
-
         this.email= email;
         this.username= username;
         this.password= password;
@@ -79,6 +82,10 @@ public class User implements UserDetails {
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getEmail() {
