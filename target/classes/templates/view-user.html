@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
-    <title>Display Member</title>
+    <title>Members Sign Up</title>
 </head>
-
 <body>
 <div th:replace="fragments/base :: navigation"></div>
 <div th:replace="fragments/base :: header"></div>
-
-<form class="form mt-3 mb-3" th:action="@{/user/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
-
-    <div class="container-fluid">
-
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <input class="form-control" type="text" th:field="*{firstName}"/>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-12">
-                    <span class="text-danger small" th:if="${#fields.hasErrors('firstName')}"
-                          th:errors="*{firstName}">
-                    </span>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <input class="form-control" type="text" th:field="*{lastName}"/>
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-12">
-                    <span class="text-danger small" th:if="${#fields.hasErrors('lastName')}"
-                          th:errors="*{lastName}">
-                    </span>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <input class="btn btn-light btn-outline-dark" type="submit" value="submit"/>
-                <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/view-user}">Cancel</a>
-            </div>
-        </div>
+<h3 id="signup">Sign up Form</h3>
+<form class="form" th:action="@{/user/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+    <div>
+        <label for="firstName">First Name: </label>
+        <input id="firstName" type="text" placeholder="first name" th:field="*{firstName}"/>
     </div>
-</form>
+    <br>
+    <div>
+        <label for="lastName">Last Name: </label>
+        <input id="lastName" type="text" placeholder="last name" th:field="*{lastName}"/>
+    </div>
+    <br>
+    <div>
+        <label for="email">Email: </label>
+        <input id="email" type="text" placeholder="email" th:field="*{email}"/>
+    </div>
+    <br/>
+    <div>
+        <label for="username">User Name: </label>
+        <input id="username" type="text" placeholder="username" th:field="*{username}"/>
+    </div>
+    <br/>
+    <div>
+        <label for="password">Password: </label> <br/>
+        <input id="password" type="password" placeholder="password" th:field="*{password}"/>
+    </div>
+    <br/>
+    <input type="submit" value="Submit"/>
 
+</form>
 <br><br>
 <div th:replace="fragments/base :: footer"></div>
+
 </body>
 <th:block th:replace="fragments/base :: scripts"></th:block>
 </html>

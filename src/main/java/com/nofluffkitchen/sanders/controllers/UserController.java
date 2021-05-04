@@ -54,7 +54,7 @@ public class UserController {
             errors.rejectValue("email", "invalidEmail", "email already in use");
             return "add-user";
         }
-        return "redirect:/view-user";
+        return "redirect:/login";
     }
 
     @PostMapping("/edit/{id}")
